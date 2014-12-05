@@ -1,0 +1,22 @@
+<template name="newsletter_modalSubscribedNewsletters">
+  <div class="anti-modal-box">
+    <div class="anti-modal-body">
+
+      <h4>{{dataSubscriber.name}} &lt;{{dataSubscriber.email}}&gt;</h4>
+
+        <div class="ui form">
+          {{#each newslettersEnriched}}
+
+            <div class="inline field">
+              <div class="ui toggle checkbox">
+                <input type="checkbox" checked="{{subscribed}}">
+                <label>{{name}}</label>
+              </div>
+            </div>
+
+          {{/each}}
+        </div>
+
+    </div>
+  </div>
+</template>

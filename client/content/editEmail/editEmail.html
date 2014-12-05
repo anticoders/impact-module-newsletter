@@ -1,0 +1,14 @@
+<template name="newsletter_editEmail">
+  
+  <h1 class="ui header">Email</h1>
+
+  <h2>Newsletter: {{newsletterName}} ({{subscriberCount}} subscribers)</h2>
+
+  {{#autoForm id="email_edit_autoform" schema=schema doc=email}}
+    {{> afQuickField name="title"       class="__trigger"}}
+    {{> afQuickField name="content"     class="__trigger" type="textarea"}}
+    {{> afQuickField name="sentAt"      class="__trigger"}}
+    {{> afQuickField name="sent"}}
+  {{/autoForm}}
+
+</template>

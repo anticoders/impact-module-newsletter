@@ -1,0 +1,47 @@
+<template name="newsletter_subscriberList">
+
+  <h1 class="ui header">Subscribers</h1>
+
+  <button id='addSubscriber' class="ui button primary">Add a subscriber</button>
+
+  <table class="ui compact table segment">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Newsletters</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{#each subscribers}}
+        <tr>
+          <td><span class='name'>{{name}}</span></td>
+          <td><span class='email'>{{email}}</span></td>
+          <td class="newsletters">
+            {{#if length newsletters}}
+              {{#each newsletter_names newsletters}}
+                <div class="ui blue label">{{.}}</div>
+              {{/each}}
+            {{else}}
+              <div class="ui red label">(no subscriptions)</div>
+            {{/if}}
+            {{#if length_more_than_5 newsletters}}
+              <div class="ui green label">(more)</div>
+            {{/if}}
+          </td>
+          <td>{{date createdAt}}</td>
+          <td>{{date updatedAt}}</td>
+          <td>
+            <i class="remove circle icon"></i>
+          </td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+
+</template>

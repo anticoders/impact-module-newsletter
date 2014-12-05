@@ -1,0 +1,38 @@
+<template name="newsletter_newsletterList">
+
+  <h1 class="ui header">Newsletters</h1>
+
+  {{> newsletter_addNewsletter}}
+
+  <table class="ui table segment">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subscribers</th>
+        <th>Updated</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{#each newsletters}}
+        <tr>
+          <td>
+            <a href="{{mPathFor 'newEmail'}}" style="text-decoration: none; color: black">
+              <i class="fa fa-envelope-o"></i>
+              <span class="name">{{name}}</span>
+            </a>
+          </td>
+          <td>{{subscriberCount _id}}</td>
+          <td>{{date updatedAt}}</td>
+          <td>
+            <i class="edit icon"></i>
+            <i class="remove circle icon"></i>
+          </td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+
+</template>

@@ -1,0 +1,46 @@
+<template name="newsletter_emailList">
+
+  <h1 class="ui header">Emails</h1>
+
+  <table class="ui compact table segment">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Length</th>
+        <th>Newsletter</th>
+        <th>Sent</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{#each emails}}
+        <tr>
+          <td>{{title}}</td>
+          <td>{{length content}}</td>
+          <td>{{newsletterName newsletterId}}</td>
+          <td>
+            {{#if sent}}<i class="icon checkmark"></i>{{/if}}
+            {{date sentAt}}    
+          </td>
+          <td>{{date createdAt}}</td>
+          <td>{{date updatedAt}}</td>
+          <td>
+            <a href="{{mPathFor 'editEmail'}}" style="text-decoration: none; color: black">
+              <i class="edit icon"></i>
+            </a>
+            {{#if sent}}
+              
+            {{else}}
+              <i class="remove circle icon"></i>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+
+</template>
